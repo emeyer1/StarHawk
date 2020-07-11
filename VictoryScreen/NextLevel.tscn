@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://VictoryScreen/NextLevel.gd" type="Script" id=1]
+[ext_resource path="res://ControlPanel/VerticalFlipSwitch/Switch_P.png" type="Texture" id=2]
+[ext_resource path="res://ControlPanel/VerticalFlipSwitch/Switch.png" type="Texture" id=3]
+[ext_resource path="res://ControlPanel/ScoreDisplay/new_dynamicfont.tres" type="DynamicFont" id=4]
+
+[node name="Control" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.522217
+margin_top = 483.161
+margin_right = -3.52222
+margin_bottom = -224.839
+toggle_mode = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 33.4633
+margin_top = 342.168
+margin_right = 568.463
+margin_bottom = 504.168
+custom_fonts/font = ExtResource( 4 )
+text = "Next Level"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="toggled" from="TextureButton" to="." method="_on_TextureButton_toggled"]
