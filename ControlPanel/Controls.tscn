@@ -1,0 +1,131 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ControlPanel/HorizontalSlider/Slider.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Blink"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.74902, 0.513726, 0.513726, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Controls" type="Control"]
+margin_left = -229.477
+margin_top = 420.09
+margin_right = -229.477
+margin_bottom = 420.09
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 240.0
+margin_top = 353.0
+margin_right = 816.0
+margin_bottom = 601.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interactables" type="Control" parent="."]
+margin_left = 240.0
+margin_top = 353.0
+margin_right = 816.0
+margin_bottom = 601.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PushButtons" type="Control" parent="Interactables"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
+margin_left = 72.5292
+margin_top = 146.949
+margin_right = 80.5292
+margin_bottom = 154.949
+Signal = "Left"
+
+[node name="Control7" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
+margin_left = 3.20178
+margin_top = 9.55481
+margin_right = 11.2018
+margin_bottom = 17.5548
+Signal = "Radio"
+
+[node name="Control6" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
+margin_left = 109.084
+margin_top = 189.806
+margin_right = 117.084
+margin_bottom = 197.806
+Signal = "Left"
+
+[node name="Control3" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
+margin_left = 44.7982
+margin_top = 88.437
+margin_right = 52.7982
+margin_bottom = 96.437
+Signal = "Down"
+
+[node name="Control4" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
+margin_left = 93.3274
+margin_top = 100.513
+margin_right = 101.327
+margin_bottom = 108.513
+Signal = "Right"
+
+[node name="Control9" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
+margin_left = 81.4537
+margin_top = 53.042
+margin_right = 89.4537
+margin_bottom = 61.042
+Signal = "Up"
+
+[node name="Control8" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
+margin_left = 121.159
+margin_top = 141.378
+margin_right = 129.159
+margin_bottom = 149.378
+Signal = "Died"
+
+[node name="Control5" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
+margin_left = 159.605
+margin_top = 171.101
+margin_right = 167.605
+margin_bottom = 179.101
+Signal = "Music"
+
+[node name="Sliders" type="Control" parent="Interactables"]
+
+[node name="Control6" parent="Interactables/Sliders" instance=ExtResource( 2 )]
+margin_left = 184.0
+margin_top = 96.0
+margin_right = 390.0
+margin_bottom = 144.0
+tick_count = 0
+Signal = "Horn"
+
+[node name="Control7" parent="Interactables/Sliders" instance=ExtResource( 2 )]
+margin_left = 184.0
+margin_top = 40.0
+margin_right = 391.0
+margin_bottom = 88.0
+tick_count = 0
+Signal = "Up"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Blink = SubResource( 1 )

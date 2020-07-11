@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ControlPanel/HorizontalSlider/Grabber.png" type="Texture" id=1]
+[ext_resource path="res://ControlPanel/HorizontalSlider/Slider.gd" type="Script" id=2]
+[ext_resource path="res://ControlPanel/_Labels/Label.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 0.490196, 0.490196, 0.490196, 1 )
+thickness = 5
+
+[node name="Control" type="HSlider"]
+anchor_right = 1.0
+margin_left = 64.0
+margin_top = 3.0
+margin_right = -77.0
+margin_bottom = 51.0
+custom_icons/grabber_disabled = ExtResource( 1 )
+custom_icons/grabber_highlight = ExtResource( 1 )
+custom_icons/grabber = ExtResource( 1 )
+custom_styles/slider = SubResource( 1 )
+scrollable = false
+tick_count = 1
+ticks_on_borders = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftLabel" type="Label" parent="."]
+visible = false
+margin_left = -46.4709
+margin_top = 14.5897
+margin_right = -6.47092
+margin_bottom = 28.5897
+text = "Left"
+align = 2
+
+[node name="Sprite" parent="." instance=ExtResource( 3 )]
+position = Vector2( -19.4381, 20.3542 )
+[connection signal="mouse_entered" from="." to="." method="_on_Control_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]

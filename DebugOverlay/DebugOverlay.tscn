@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://DebugOverlay/DebugOverlay.gd" type="Script" id=1]
+
+[node name="DebugOverlay" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 13.1444
+margin_top = 9.55701
+margin_right = 53.1443
+margin_bottom = 23.557
+text = "adssd"
+__meta__ = {
+"_edit_use_anchors_": false
+}

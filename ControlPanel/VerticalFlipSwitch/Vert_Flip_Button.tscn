@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ControlPanel/VerticalFlipSwitch/Switch.png" type="Texture" id=1]
+[ext_resource path="res://ControlPanel/VerticalFlipSwitch/Switch_P.png" type="Texture" id=2]
+[ext_resource path="res://ControlPanel/VerticalFlipSwitch/Vert_Flip_Button.gd" type="Script" id=3]
+[ext_resource path="res://ControlPanel/_Labels/Label.tscn" type="PackedScene" id=4]
+
+[node name="Control" type="TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.47003
+margin_top = 20.3726
+margin_right = -551.53
+margin_bottom = -936.627
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpLabel" type="Label" parent="."]
+visible = false
+margin_left = -0.832169
+margin_top = -13.0373
+margin_right = 39.1678
+margin_bottom = 0.9627
+text = "Up"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DownLabel" type="Label" parent="."]
+visible = false
+margin_left = 0.27739
+margin_top = 70.4569
+margin_right = 40.2774
+margin_bottom = 84.4569
+text = "Down"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopSprite" parent="." instance=ExtResource( 4 )]
+position = Vector2( 21.3533, -9.78674 )
+
+[node name="BottomSprite" parent="." instance=ExtResource( 4 )]
+position = Vector2( 21.1154, 79.1605 )
+[connection signal="mouse_entered" from="." to="." method="_on_Control_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]
