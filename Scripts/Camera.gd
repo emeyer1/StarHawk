@@ -3,7 +3,7 @@ extends Camera
 export var follow_distance = -10
 export var follow_speed = 2
 
-var x_bounds = 3
+var x_bounds = 6
 var top_bound = 20
 var bottom_bound = 8
 var ship_class = preload("Ship.gd")
