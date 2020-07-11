@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ControlPanel/HorizontalSlider/Slider.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ControlPanel/VerticalFlipSwitch/Vert_Flip_Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ControlPanel/ScoreDisplay/ScoreDisplay.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ControlPanel/Radio/Radio.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ControlPanel/Radio/RadioButton.gd" type="Script" id=6]
 
 [node name="Controls" type="Control"]
 margin_left = -229.477
@@ -35,94 +36,79 @@ __meta__ = {
 }
 
 [node name="PushButtons" type="Control" parent="Interactables"]
+margin_left = -26.523
+margin_top = 2.91003
+margin_right = -26.523
+margin_bottom = 2.91003
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Control2" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 72.5292
-margin_top = 146.949
-margin_right = 80.5292
-margin_bottom = 154.949
+margin_left = 237.477
+margin_top = 18.9101
+margin_right = 285.477
+margin_bottom = 66.9101
+rect_scale = Vector2( 2, 2 )
 Signal = "Left"
 
 [node name="Control7" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 247.886
-margin_top = 162.482
-margin_right = 295.886
-margin_bottom = 210.482
-Signal = "Radio"
-
-[node name="Control6" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 109.084
-margin_top = 189.806
-margin_right = 117.084
-margin_bottom = 197.806
-Signal = "Left"
-
-[node name="Control3" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 44.7982
-margin_top = 88.8342
-margin_right = 92.7982
-margin_bottom = 136.834
-Signal = "Down"
-
-[node name="Control4" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 93.3274
-margin_top = 100.513
-margin_right = 101.327
-margin_bottom = 108.513
+margin_left = 317.477
+margin_top = 82.91
+margin_right = 365.477
+margin_bottom = 130.91
+rect_scale = Vector2( 1.5, 1.5 )
 Signal = "Right"
 
-[node name="Control9" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 81.4537
-margin_top = 53.042
-margin_right = 89.4537
-margin_bottom = 61.042
-Signal = "Up"
-
 [node name="Control8" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 121.159
-margin_top = 141.378
-margin_right = 129.159
-margin_bottom = 149.378
-Signal = "Died"
-
-[node name="Control5" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 159.605
-margin_top = 171.101
-margin_right = 167.605
-margin_bottom = 179.101
-Signal = "Music"
+margin_left = 245.477
+margin_top = 114.91
+margin_right = 293.477
+margin_bottom = 162.91
+rect_scale = Vector2( 1.5, 1.5 )
+Signal = "Down"
 
 [node name="Sliders" type="Control" parent="Interactables"]
+margin_left = -26.523
+margin_top = -5.08997
+margin_right = -26.523
+margin_bottom = -5.08997
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Control6" parent="Interactables/Sliders" instance=ExtResource( 2 )]
-margin_left = 184.0
-margin_top = 96.0
-margin_right = 390.0
-margin_bottom = 144.0
-tick_count = 0
-Signal = "Horn"
+[node name="Control" parent="Interactables/Sliders" instance=ExtResource( 2 )]
+margin_left = 53.477
+margin_top = 34.91
+margin_right = 183.477
+margin_bottom = 82.91
 
-[node name="Control7" parent="Interactables/Sliders" instance=ExtResource( 2 )]
-margin_left = 184.0
-margin_top = 40.0
-margin_right = 391.0
-margin_bottom = 88.0
-tick_count = 0
+[node name="Sprite" parent="Interactables/Sliders/Control" index="1"]
+position = Vector2( 160, 24 )
+
+[node name="Control2" parent="Interactables/Sliders" instance=ExtResource( 2 )]
+margin_left = 53.477
+margin_top = 90.91
+margin_right = 183.477
+margin_bottom = 138.91
 Signal = "Up"
 
+[node name="Sprite" parent="Interactables/Sliders/Control2" index="1"]
+position = Vector2( 160, 24 )
+
 [node name="FlipSwitches" type="Control" parent="Interactables"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -18.523
+margin_top = -21.09
+margin_right = 21.477
+margin_bottom = 18.91
 
 [node name="FlipSwitch" parent="Interactables/FlipSwitches" instance=ExtResource( 3 )]
-margin_left = 322.0
-margin_top = 155.0
-margin_right = 330.0
-margin_bottom = 163.0
-Signal = "Left"
+margin_left = 373.477
+margin_top = 50.91
+margin_right = 381.477
+margin_bottom = 58.91
+rect_scale = Vector2( 1.5, 1.5 )
+Signal = "Died"
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = 678.0
@@ -142,3 +128,12 @@ margin_left = 718.386
 margin_top = 476.308
 margin_right = 766.386
 margin_bottom = 524.308
+script = ExtResource( 6 )
+
+[editable path="Interactables/PushButtons/Control2"]
+
+[editable path="Interactables/Sliders/Control"]
+
+[editable path="Interactables/Sliders/Control2"]
+
+[editable path="Interactables/FlipSwitches/FlipSwitch"]

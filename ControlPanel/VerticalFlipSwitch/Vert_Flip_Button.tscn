@@ -44,7 +44,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BottomSprite" parent="." instance=ExtResource( 4 )]
+[node name="Sprite" parent="." instance=ExtResource( 4 )]
 position = Vector2( 24.2148, 61.5328 )
 [connection signal="mouse_entered" from="." to="." method="_on_Control_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]

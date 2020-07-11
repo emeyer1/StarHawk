@@ -21,8 +21,9 @@ func _on_Control_mouse_exited():
 
 func _on_Radio_button_down():
 	Game.ChangeScore(200)
-	for i in get_node("/root/StarFax/Camera/Controls/Interactables/PushButtons").get_children():
-		i.get_node("Sprite").assign_vals()
-		for j in i.get_children():
-			for k in j.get_children():
-				k.play("Fade")
+	for i in get_node("/root/StarFax/Camera/Controls/Interactables").get_children():
+		for ii in i.get_children():
+			ii.get_node("Sprite").assign_vals()
+			for j in ii.get_children():
+				for k in j.get_children():
+					k.play("Fade")

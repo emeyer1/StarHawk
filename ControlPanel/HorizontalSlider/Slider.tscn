@@ -10,14 +10,16 @@ thickness = 5
 
 [node name="Control" type="HSlider"]
 anchor_right = 1.0
-margin_left = 64.0
+margin_left = 63.4597
 margin_top = 3.0
-margin_right = -77.0
+margin_right = -77.5403
 margin_bottom = 51.0
 custom_icons/grabber_disabled = ExtResource( 1 )
 custom_icons/grabber_highlight = ExtResource( 1 )
 custom_icons/grabber = ExtResource( 1 )
 custom_styles/slider = SubResource( 1 )
+max_value = 100.0
+value = 100.0
 scrollable = false
 tick_count = 1
 ticks_on_borders = true
@@ -25,6 +27,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+Signal = "Left"
 
 [node name="LeftLabel" type="Label" parent="."]
 visible = false
@@ -36,6 +39,6 @@ text = "Left"
 align = 2
 
 [node name="Sprite" parent="." instance=ExtResource( 3 )]
-position = Vector2( -19.4381, 20.3542 )
+position = Vector2( 484.178, 21.9753 )
 [connection signal="mouse_entered" from="." to="." method="_on_Control_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]
