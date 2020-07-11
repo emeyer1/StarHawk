@@ -82,6 +82,7 @@ func input():
 					control_inputs["y"] -= 1
 				"Radio":
 					for i in get_node("/root/StarFax/Camera/Controls/Interactables/PushButtons").get_children():
+						i.get_node("Sprite").assign_vals()
 						for j in i.get_children():
 							for k in j.get_children():
 								k.play("Fade")
