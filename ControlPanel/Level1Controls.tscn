@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ControlPanel/ScoreDisplay/ScoreDisplay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ControlPanel/Radio/Radio.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=3]
+
+[node name="Controls" type="Control"]
+margin_left = -229.477
+margin_top = 420.09
+margin_right = -229.477
+margin_bottom = 420.09
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 240.0
+margin_top = 353.0
+margin_right = 816.0
+margin_bottom = 601.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interactables" type="Control" parent="."]
+margin_left = 240.0
+margin_top = 353.0
+margin_right = 816.0
+margin_bottom = 601.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PushButtons" type="Control" parent="Interactables"]
+margin_left = -26.523
+margin_top = 2.91003
+margin_right = -26.523
+margin_bottom = 2.91003
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" parent="Interactables/PushButtons" instance=ExtResource( 3 )]
+margin_left = 256.0
+margin_top = 16.0
+margin_right = 304.0
+margin_bottom = 64.0
+rect_scale = Vector2( 2, 2 )
+Signal = "Up"
+
+[node name="Control8" parent="Interactables/PushButtons" instance=ExtResource( 3 )]
+margin_left = 268.919
+margin_top = 112.0
+margin_right = 316.919
+margin_bottom = 160.0
+rect_scale = Vector2( 1.5, 1.5 )
+Signal = "Down"
+
+[node name="Sliders" type="Control" parent="Interactables"]
+margin_left = -26.523
+margin_top = -5.08997
+margin_right = -26.523
+margin_bottom = -5.08997
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlipSwitches" type="Control" parent="Interactables"]
+margin_left = -18.523
+margin_top = -21.09
+margin_right = 21.477
+margin_bottom = 18.91
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 678.0
+margin_top = 390.0
+margin_right = 796.0
+margin_bottom = 429.0
+color = Color( 0.27451, 0.541176, 0.25098, 1 )
+
+[node name="ScoreDisplay" parent="." instance=ExtResource( 1 )]
+margin_left = 677.842
+margin_top = 390.158
+margin_right = 677.842
+margin_bottom = 390.158
+
+[node name="Radio" parent="." instance=ExtResource( 2 )]
+margin_left = 718.386
+margin_top = 476.308
+margin_right = 766.386
+margin_bottom = 524.308
+
+[editable path="Interactables/PushButtons/Control2"]

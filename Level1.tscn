@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Building.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://Models/ship.glb" type="PackedScene" id=2]
+[ext_resource path="res://ControlPanel/Level1Controls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Ship.gd" type="Script" id=5]
+[ext_resource path="res://Game.gd" type="Script" id=6]
+[ext_resource path="res://test.png" type="Texture" id=7]
+[ext_resource path="res://Sound/izNMQKSUM8P5.128.ogg" type="AudioStream" id=8]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="Animation" id=7]
+resource_name = "Hit Animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ship:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true ]
+}
+
+[sub_resource type="Curve" id=3]
+min_value = -2.23517e-10
+max_value = 0.01
+bake_resolution = 103
+_data = [ Vector2( 0, 0.000181818 ), 0.0, 0.0, 0, 0, Vector2( 0.444444, 0.00663636 ), 0.0, 0.0, 0, 0, Vector2( 1, 9.09092e-05 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="PanoramaSky" id=5]
+panorama = SubResource( 4 )
+
+[sub_resource type="Environment" id=6]
+background_mode = 1
+background_sky = SubResource( 5 )
+background_color = Color( 0.309804, 0.207843, 0.329412, 1 )
+ambient_light_color = Color( 0.101961, 0.0901961, 0.0901961, 1 )
+ambient_light_energy = 2.65
+
+[node name="StarFax" type="Spatial"]
+script = ExtResource( 6 )
+Score = 2000
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 50, 0, 0, 0, -2.18557e-05, -1, 0, 500, -4.37114e-08, 0, 0, 250 )
+modulate = Color( 0.960784, 0.611765, 0.611765, 1 )
+texture = ExtResource( 7 )
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29675, -16.5132 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.28, 0, 0, 0, 1.4, 0, 0.205, 0.743 )
+shape = SubResource( 1 )
+
+[node name="ship" parent="Player" instance=ExtResource( 2 )]
+transform = Transform( 0.418, 0, 0, 0, 1.283, 0, 0, 0, 0.808, 0, 0, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+"anims/Hit Animation" = SubResource( 7 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, 5.16436e-08, -1.4189e-07, 0, 0.939693, 0.34202, 1.50996e-07, 0.34202, -0.939693, 0, 7, -23.072 )
+script = ExtResource( 4 )
+
+[node name="Controls" parent="Camera" instance=ExtResource( 3 )]
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( 0, 35, 2, 1, 35, 2, 2, 35, 2, 3, 35, 2, 4, 35, 2, 5, 35, 2, 6, 35, 2, 7, 35, 2, 8, 35, 2, 65527, 35, 2, 65528, 35, 2, 65529, 35, 2, 65530, 35, 2, 65531, 35, 2, 65532, 35, 2, 65533, 35, 2, 65534, 35, 2, 65535, 35, 2, 65543, 35, 2, 131065, 35, 2, 7, 36, 2, 65529, 36, 2, 65543, 36, 2, 131065, 36, 2, 7, 37, 2, 65529, 37, 2, 65543, 37, 2, 131065, 37, 2, 7, 38, 2, 65529, 38, 2, 65543, 38, 2, 131065, 38, 2, 7, 39, 2, 65529, 39, 2, 65543, 39, 2, 131065, 39, 2, 7, 40, 2, 65529, 40, 2, 65543, 40, 2, 131065, 40, 2, 7, 41, 2, 65529, 41, 2, 65543, 41, 2, 131065, 41, 2, 0, 42, 2, 1, 42, 2, 2, 42, 2, 3, 42, 2, 4, 42, 2, 5, 42, 2, 6, 42, 2, 7, 42, 2, 8, 42, 2, 9, 42, 2, 65526, 42, 536870914, 65527, 42, 2, 65528, 42, 2, 65529, 42, 536870914, 65530, 42, 2, 65531, 42, 2, 65532, 42, 536870914, 65533, 42, 2, 65534, 42, 2, 65535, 42, -1610612734, 65540, 42, 536870914, 65541, 42, 2, 65542, 42, 2, 65543, 42, 2, 131065, 42, 2, 131066, 42, 2, 131067, 42, 2, 131068, 42, 536870914, 9, 53, 2, 65527, 53, 2, 65536, 53, 2, 65537, 53, 536870914, 65538, 53, 2, 65539, 53, 536870914, 65540, 53, 536870914, 65541, 53, 2, 65542, 53, 2, 65543, 53, 536870914, 65544, 53, 2, 65545, 53, 2, 131063, 53, 536870914, 131064, 53, 536870914, 131065, 53, 2, 131066, 53, 2, 131067, 53, 536870914, 131068, 53, 2, 131069, 53, 2, 131070, 53, 2, 131071, 53, 2, 131072, 53, 2, 131073, 53, 2, 131074, 53, 2, 131075, 53, 2, 131076, 53, 536870914, 131077, 53, 2, 131078, 53, 2, 131079, 53, 536870914, 131080, 53, 2, 131081, 53, 2, 196599, 53, 2, 196600, 53, 2, 196601, 53, 2, 196602, 53, 2, 196603, 53, 2, 196604, 53, 536870914, 196605, 53, 536870914, 196606, 53, 2, 196607, 53, 2, 262140, 62, 536870914, 262140, 63, 2, 65532, 64, 2, 131068, 64, 536870914, 262140, 64, 2, 65532, 65, 536870914, 131068, 65, 2, 262140, 65, 536870914, 65532, 66, 536870914, 131068, 66, 2, 262140, 66, 2, 65532, 67, 2, 131068, 67, 2, 262140, 67, 2, 65532, 68, 2, 131068, 68, 2, 262140, 68, 2, 65532, 69, 2, 131064, 69, 2, 131065, 69, 536870914, 131068, 69, 2, 262136, 69, 536870914, 262137, 69, 536870914, 262140, 69, 2, 131065, 70, 536870914, 131066, 70, 536870914, 131067, 70, 2, 131068, 70, 2, 262137, 70, 536870914, 262138, 70, 2, 262139, 70, 2, 262140, 70, 2, 131068, 71, 2, 131069, 71, 2, 131070, 71, 2, 131071, 71, 2, 262140, 71, 2, 262141, 71, 2, 262142, 71, 2, 262143, 71, 2, 65536, 72, 2, 65537, 72, 536870914, 65538, 72, 2, 131071, 72, 2, 196608, 72, 536870914, 196609, 72, 2, 196610, 72, 2, 262143, 72, 2, 65538, 73, 2, 65539, 73, 2, 65540, 73, 2, 65541, 73, 2, 196610, 73, 2, 196611, 73, 2, 196612, 73, 536870914, 196613, 73, 2, 4, 74, 2, 65540, 74, 536870914, 65541, 74, 2, 65542, 74, 2, 65543, 74, 2, 65544, 74, 2, 65545, 74, 2, 196612, 74, 536870914, 196613, 74, 2, 196614, 74, 2, 196615, 74, 536870914, 196616, 74, 2, 196617, 74, 2, 262148, 74, 2, 4, 75, 2, 65540, 75, 2, 196612, 75, 2, 262148, 75, 2, 327684, 75, 2, 4, 76, 2, 65540, 76, 2, 196612, 76, 2, 262148, 76, 2, 327684, 76, 2, 4, 77, 2, 65540, 77, 2, 196612, 77, 2, 262148, 77, 2, 327684, 77, 536870914, -65532, 77, 2, 4, 78, 2, 65540, 78, 2, 196612, 78, 2, 262148, 78, 2, 327684, 78, 2, 393220, 78, 2, -65532, 78, 2, 4, 79, 2, 65540, 79, 2, 196612, 79, 2, 262148, 79, 2, 327684, 79, 2, 393220, 79, 2, 4, 80, 2, 65540, 80, 2, 196612, 80, 2, 262148, 80, 536870914, 327684, 80, 2, 4, 81, 2, 65540, 81, 2, 196612, 81, 2, 262148, 81, 536870914, 327684, 81, 2, 4, 82, 2, 65540, 82, 2, 131076, 82, 536870914, 196612, 82, 2, 262148, 82, 2, 4, 83, 2, 65540, 83, 2, 131076, 83, 2, 196612, 83, 2, 262148, 83, 2, 4, 84, 2, 65540, 84, 2, 196612, 84, 2 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 4, 2, 98 )
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )
