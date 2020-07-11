@@ -8,6 +8,9 @@ extends Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	assign_vals()
+			
+func assign_vals():
 	var Signal = get_parent().Signal
 	if Signal in ['Up','Left','Down','Right']:
 		texture = load("res://ControlPanel/_Labels/arrow.png")
@@ -27,4 +30,3 @@ func _ready():
 			rotation_degrees = 90
 		'Down':
 			rotation_degrees = 180
-			
