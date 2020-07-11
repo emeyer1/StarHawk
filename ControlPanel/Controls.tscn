@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ControlPanel/HorizontalSlider/Slider.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ControlPanel/VerticalFlipSwitch/Vert_Flip_Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ControlPanel/ScoreDisplay/ScoreDisplay.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ControlPanel/Radio/Radio.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ControlPanel/Radio/RadioButton.gd" type="Script" id=6]
 
 [node name="Controls" type="Control"]
 margin_left = -229.477
@@ -50,7 +49,7 @@ margin_top = 18.9101
 margin_right = 285.477
 margin_bottom = 66.9101
 rect_scale = Vector2( 2, 2 )
-Signal = "Left"
+Signal = "Died"
 
 [node name="Control7" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
 margin_left = 317.477
@@ -58,7 +57,7 @@ margin_top = 82.91
 margin_right = 365.477
 margin_bottom = 130.91
 rect_scale = Vector2( 1.5, 1.5 )
-Signal = "Right"
+Signal = "Died"
 
 [node name="Control8" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
 margin_left = 245.477
@@ -66,7 +65,7 @@ margin_top = 114.91
 margin_right = 293.477
 margin_bottom = 162.91
 rect_scale = Vector2( 1.5, 1.5 )
-Signal = "Down"
+Signal = "Right"
 
 [node name="Sliders" type="Control" parent="Interactables"]
 margin_left = -26.523
@@ -108,7 +107,7 @@ margin_top = 50.91
 margin_right = 381.477
 margin_bottom = 58.91
 rect_scale = Vector2( 1.5, 1.5 )
-Signal = "Died"
+Signal = "Down"
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = 678.0
@@ -128,7 +127,6 @@ margin_left = 718.386
 margin_top = 476.308
 margin_right = 766.386
 margin_bottom = 524.308
-script = ExtResource( 6 )
 
 [editable path="Interactables/PushButtons/Control2"]
 
