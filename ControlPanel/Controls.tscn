@@ -47,11 +47,11 @@ margin_bottom = 154.949
 Signal = "Left"
 
 [node name="Control7" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
-margin_left = 11.9405
-margin_top = 7.96594
-margin_right = 59.9405
-margin_bottom = 55.9659
-Signal = "Radio"
+margin_left = 238.75
+margin_top = 154.141
+margin_right = 286.75
+margin_bottom = 202.141
+Signal = "Left"
 
 [node name="Control6" parent="Interactables/PushButtons" instance=ExtResource( 1 )]
 margin_left = 109.084

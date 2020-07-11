@@ -9,8 +9,11 @@ onready var Radio = $Camera/Controls/Radio
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ScoreDisplay.update_score(Score)
+	$AudioStreamPlayer.play()
 
 
 func ChangeScore(diff):
 	Score = Score - diff
 	ScoreDisplay.update_score(Score)
+
+
