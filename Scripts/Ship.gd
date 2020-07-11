@@ -9,6 +9,7 @@ var turn_rotation_max_angle = 20
 
 onready var UI_buttons = get_node("/root/StarFax/Camera/Controls/Interactables/PushButtons").get_children()
 onready var UI_sliders = get_node("/root/StarFax/Camera/Controls/Interactables/Sliders").get_children()
+onready var UI_switches = get_node("/root/StarFax/Camera/Controls/Interactables/FlipSwitches").get_children()
 
 
 var control_inputs = {
@@ -98,3 +99,14 @@ func input():
 			"Down":
 				control_inputs["y"] -= s.value/200
 	
+	for sw in UI_switches:
+		if sw.Button_signal:
+			match sw.Button_signal:
+				"Right":
+					control_inputs["x"] -= 1
+				"Left":
+					control_inputs["x"] += 1
+				"Up":
+					control_inputs["y"] += 1
+				"Down":
+					control_inputs["y"] -= 1

@@ -8,10 +8,10 @@
 [node name="Control" type="TextureButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.47003
-margin_top = 20.3726
-margin_right = -551.53
-margin_bottom = -936.627
+margin_left = 5.0
+margin_top = 20.0
+margin_right = -547.0
+margin_bottom = -956.0
 toggle_mode = true
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 2 )
@@ -44,10 +44,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopSprite" parent="." instance=ExtResource( 4 )]
-position = Vector2( 21.3533, -9.78674 )
-
 [node name="BottomSprite" parent="." instance=ExtResource( 4 )]
-position = Vector2( 21.1154, 79.1605 )
+position = Vector2( 24.2148, 61.5328 )
 [connection signal="mouse_entered" from="." to="." method="_on_Control_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]
+[connection signal="toggled" from="." to="." method="_on_Control_toggled"]
