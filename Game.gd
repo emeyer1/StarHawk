@@ -14,3 +14,7 @@ func _ready():
 func ChangeScore(diff):
 	Score = Score - diff
 	ScoreDisplay.update_score(Score)
+
+
+func _on_Area_body_entered(body):
+	print("Win")
