@@ -7,7 +7,7 @@ var turn_rotation_speed = 3
 var turn_rotation_max_angle = 20
 var x_bounds = 8
 var top_bound = 8
-var bottom_bound = 0
+var bottom_bound = 0.4
 
 onready var Game = get_node("/root/StarFax")
 
