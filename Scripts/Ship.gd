@@ -6,11 +6,11 @@ var turn_speed = 600
 var turn_rotation_speed = 3
 var turn_rotation_max_angle = 20
 
+onready var Game = get_node("/root/StarFax")
 
 onready var UI_buttons = get_node("/root/StarFax/Camera/Controls/Interactables/PushButtons").get_children()
 onready var UI_sliders = get_node("/root/StarFax/Camera/Controls/Interactables/Sliders").get_children()
 onready var UI_switches = get_node("/root/StarFax/Camera/Controls/Interactables/FlipSwitches").get_children()
-
 
 var control_inputs = {
 	"x" : 0.0,
@@ -81,12 +81,7 @@ func input():
 					control_inputs["y"] += 1
 				"Down":
 					control_inputs["y"] -= 1
-				"Radio":
-					for i in get_node("/root/StarFax/Camera/Controls/Interactables/PushButtons").get_children():
-						i.get_node("Sprite").assign_vals()
-						for j in i.get_children():
-							for k in j.get_children():
-								k.play("Fade")
+
 
 	for s in UI_sliders:
 		match s.Signal:

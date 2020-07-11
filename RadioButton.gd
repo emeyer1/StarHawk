@@ -1,25 +1,17 @@
 extends TextureButton
 
 const SHADER = preload('res://ControlPanel/OutlineSprite.shader')
+onready var Game = get_node('/root/StarFax')
 
-export(String) var Signal
 
-var Button_signal = null
+signal radio
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	material = ShaderMaterial.new()
-	
-	
-	$Label.text = str(Signal)
-	texture_normal = load('res://ControlPanel/PushButton/button_2test.png')
+	#texture_normal = load('res://ControlPanel/PushButton/button_2test.png')
 	texture_pressed = load('res://ControlPanel/PushButton/button_2test_P.png')
-	
-func _process(delta):
-	if pressed:
-		Button_signal = Signal
-	else:
-		Button_signal = null
+
 	
 func _on_Control_mouse_entered():
 	material.shader = SHADER
@@ -27,6 +19,10 @@ func _on_Control_mouse_entered():
 func _on_Control_mouse_exited():
 	material.shader = null
 
-func _on_Control_pressed():
-	var pressed = true
-
+func _on_Radio_button_down():
+	Game.ChangeScore(200)
+	for i in get_node("/root/StarFax/Camera/Controls/Interactables/PushButtons").get_children():
+		i.get_node("Sprite").assign_vals()
+		for j in i.get_children():
+			for k in j.get_children():
+				k.play("Fade")
