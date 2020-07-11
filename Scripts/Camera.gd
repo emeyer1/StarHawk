@@ -4,8 +4,8 @@ export var follow_distance = -10
 export var follow_speed = 2
 
 var x_bounds = 3
-var top_bound = 10
-var bottom_bound = 4
+var top_bound = 20
+var bottom_bound = 8
 var ship_class = preload("Ship.gd")
 
 var last_obstructing_objects = []
