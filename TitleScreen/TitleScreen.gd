@@ -16,5 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_Button_button_up():
+func _on_TextureButton_button_up():
 	get_tree().change_scene("res://StarFax.tscn")
