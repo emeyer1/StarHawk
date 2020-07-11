@@ -28,14 +28,17 @@ func _physics_process(delta):
 	if abs(control_inputs["x"]) < 0.05:
 		if abs(rotation_degrees.y) > 5:
 			rotate(Vector3(0 ,1 ,0), -turn_rotation_speed * sign(rotation_degrees.y) * delta)
+			rotate(Vector3(0 ,0 ,1), -turn_rotation_speed * sign(rotation_degrees.z) * delta)
 		else:
 			rotation_degrees.y = 0
+			rotation_degrees.z = 0
 	else:
 		rotate(Vector3(0 ,1 ,0), turn_rotation_speed * control_inputs["x"] * delta)
-	print(rotation_degrees.y)
+		rotate(Vector3(0 ,0 ,1), -turn_rotation_speed * control_inputs["x"] * delta)
+	print(rotation_degrees.z)
 	rotation_degrees.x = clamp(rotation_degrees.x, -turn_rotation_max_angle, turn_rotation_max_angle)
 	rotation_degrees.y = clamp(rotation_degrees.y, -turn_rotation_max_angle, turn_rotation_max_angle)
-	rotation_degrees.z = 0
+	rotation_degrees.z = clamp(rotation_degrees.z, -turn_rotation_max_angle, turn_rotation_max_angle)
 	velocity = Vector3(0, 0, 0)
 	velocity += Vector3(0, 0, 1) * base_speed * control_inputs["speed_boost"] * delta 
 	velocity += control_inputs["x"] * Vector3(1, 0, 0) * turn_speed * control_inputs["speed_boost"] * delta
