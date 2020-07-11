@@ -23,28 +23,3 @@ text = "$8000"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = 1.16608
-margin_top = 47.3258
-margin_right = 116.166
-margin_bottom = 77.3258
-max_value = 3.0
-step = 1.0
-value = 2.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="ProgressBar"]
-margin_left = 35.0441
-margin_top = -0.283119
-margin_right = 36.0441
-margin_bottom = 28.7169
-
-[node name="ColorRect2" type="ColorRect" parent="ProgressBar"]
-margin_left = 73.1116
-margin_top = 0.283852
-margin_right = 74.1116
-margin_bottom = 29.2839
