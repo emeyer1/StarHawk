@@ -1,6 +1,6 @@
 extends Camera
 
-var follow_distance = -10
+export var follow_distance = -10
 
 func _ready():
 	var overlay = load("res://DebugOverlay/DebugOverlay.tscn").instance()
