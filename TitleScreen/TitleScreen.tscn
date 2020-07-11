@@ -35,12 +35,12 @@ tracks/1/keys = {
 "values": [ Color( 0.545098, 0.588235, 1, 0 ), Color( 0.545098, 0.588235, 1, 1 ), Color( 0.545098, 0.588235, 1, 0 ) ]
 }
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( -0.027, 1 )
 colors = PoolColorArray( 0.235294, 0.192157, 0.243137, 1, 0.137255, 0.027451, 0.027451, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -89,5 +89,5 @@ __meta__ = {
 position = Vector2( 300.473, 515.004 )
 scale = Vector2( 0.293874, 1038.76 )
 z_index = -15
-texture = SubResource( 2 )
+texture = SubResource( 3 )
 [connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_button_up"]
