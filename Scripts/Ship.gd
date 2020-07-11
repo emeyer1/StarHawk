@@ -1,7 +1,7 @@
 extends KinematicBody
 
 var velocity = Vector3()
-var base_speed = 500
+export var base_speed = 1000
 var turn_speed = 600
 var turn_rotation_speed = 3
 var turn_rotation_max_angle = 20
