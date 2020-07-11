@@ -5,6 +5,9 @@ var base_speed = 500
 var turn_speed = 600
 var turn_rotation_speed = 3
 var turn_rotation_max_angle = 20
+var x_bounds = 8
+var top_bound = 8
+var bottom_bound = 0
 
 onready var Game = get_node("/root/StarFax")
 
@@ -45,6 +48,11 @@ func _physics_process(delta):
 	rotation_degrees.y = clamp(rotation_degrees.y, -turn_rotation_max_angle, turn_rotation_max_angle)
 	rotation_degrees.z = clamp(rotation_degrees.z, -turn_rotation_max_angle, turn_rotation_max_angle)
 	velocity = Vector3(0, 0, 0)
+	if (translation.x > x_bounds && sign(control_inputs["x"]) > 0) || (translation.x < -x_bounds && sign(control_inputs["x"]) < 0):
+		control_inputs["x"] = 0
+	
+	if (translation.y > top_bound && sign(control_inputs["y"]) > 0) || (translation.y < bottom_bound && sign(control_inputs["y"]) < 0) :
+		control_inputs["y"] = 0
 	velocity += Vector3(0, 0, 1) * base_speed * control_inputs["speed_boost"] * delta 
 	velocity += control_inputs["x"] * Vector3(1, 0, 0) * turn_speed * control_inputs["speed_boost"] * delta
 	velocity += control_inputs["y"] * Vector3(0, 1, 0) * turn_speed * control_inputs["speed_boost"] * delta
