@@ -1,8 +1,8 @@
 extends KinematicBody
 
 var velocity = Vector3()
-export var base_speed = 1000
-var turn_speed = 600
+export var base_speed = 50
+var turn_speed = 20
 var turn_rotation_speed = 3
 var turn_rotation_max_angle = 20
 var x_bounds = 8
@@ -10,6 +10,8 @@ var top_bound = 8
 var bottom_bound = 0.4
 
 onready var Game = get_node("/root/StarFax")
+onready var timer = get_node("/root/StarFax/Player/Timer")
+
 
 onready var UI_buttons = get_node("/root/StarFax/Camera/Controls/Interactables/PushButtons").get_children()
 onready var UI_sliders = get_node("/root/StarFax/Camera/Controls/Interactables/Sliders").get_children()
@@ -57,10 +59,17 @@ func _physics_process(delta):
 	velocity += Vector3(0, 0, 1) * base_speed * control_inputs["speed_boost"] * delta 
 	velocity += control_inputs["x"] * Vector3(1, 0, 0) * turn_speed * control_inputs["speed_boost"] * delta
 	velocity += control_inputs["y"] * Vector3(0, 1, 0) * turn_speed * control_inputs["speed_boost"] * delta
-	velocity = move_and_slide(velocity, Vector3.UP)
+	#velocity = move_and_slide(velocity, Vector3.UP)
 
-
-
+	var collision = move_and_collide(velocity)
+	if collision:
+		$CollisionShape.disabled = true
+		Game.ChangeScore(1000)
+		$AnimationPlayer.play("Hit Animation")
+		yield($AnimationPlayer,"animation_finished")
+		$CollisionShape.disabled = false
+		
+		
 
 	
 func input():
