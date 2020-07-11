@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=3]
 [ext_resource path="res://ControlPanel/Controls.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Models/ship.glb" type="PackedScene" id=5]
+[ext_resource path="res://Building.meshlib" type="MeshLibrary" id=6]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -13,10 +14,11 @@
 [node name="StarFax" type="Spatial"]
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29675, -16.5132 )
+transform = Transform( 0.476, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29675, -16.5132 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 2.617, 0, 0, 0, 0.259, 0, 0, 0, 1.916, 0, 0.105, 1.064 )
 shape = SubResource( 1 )
 
 [node name="ship" parent="Player" instance=ExtResource( 5 )]
@@ -34,5 +36,15 @@ texture = ExtResource( 2 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 5.16436e-08, -1.4189e-07, 0, 0.939693, 0.34202, 1.50996e-07, 0.34202, -0.939693, 0, 7, -23.072 )
 script = ExtResource( 3 )
+follow_distance = -20
 
 [node name="Controls" parent="Camera" instance=ExtResource( 4 )]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 6 )
+data = {
+"cells": PoolIntArray( 5, 0, 536870913, 65532, 0, 1, 5, 1, 1, 65532, 1, 536870913, 5, 2, 1073741825, 65532, 2, 1, 5, 3, 1073741825, 65532, 3, 1, 5, 4, 536870913, 65532, 4, 1, 5, 5, 1, 65532, 5, 1, 5, 6, 1, 65532, 6, 1, 5, 7, 1073741825, 65532, 7, 1, 5, 8, 1, 65532, 8, 1, 5, 9, 1, 65532, 9, 1, 5, 10, 1, 65532, 10, 1, 5, 11, 1, 65532, 11, 1, 4, 12, 1, 5, 12, 1, 65532, 12, 1, 4, 13, 1, 5, 13, 1073741825, 65532, 13, 1, 4, 14, 1, 5, 14, 1, 65532, 14, 1, 5, 15, 1, 65532, 15, 1, 5, 16, 1073741825, 65532, 16, 1, 4, 17, 1, 5, 17, 1, 65532, 17, 1073741825, 4, 18, 1, 65532, 18, 1, 4, 19, 1073741825, 65532, 19, 1, 4, 20, 1, 65532, 20, 1, 0, 21, 1, 1, 21, 1073741825, 2, 21, 1, 3, 21, 1, 4, 21, 1, 65532, 21, 1, 65533, 21, 1, 65534, 21, 1, 65535, 21, 1, 2, 22, 1, 3, 22, 1, 4, 22, 536870913, 1, 65528, 1073741825, 2, 65528, 536870913, 3, 65528, 536870913, 4, 65528, 536870913, 4, 65529, 1, 4, 65530, 536870913, 4, 65531, 536870913, 65532, 65531, 536870913, 4, 65532, 1, 5, 65532, 1, 65532, 65532, 1, 5, 65533, 1, 65532, 65533, 1, 5, 65534, 1, 65532, 65534, 1, 5, 65535, 1, 65532, 65535, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
