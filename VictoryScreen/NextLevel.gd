@@ -22,7 +22,9 @@ func _ready():
 func _on_TextureButton_toggled(button_pressed):
 	if !once:
 		once = true
+		Game.get_node("AudioStreamPlayer").stop()
 		change_scene()
+		
 	
 func change_scene():
 	yield(get_tree().create_timer(0.25), "timeout")
