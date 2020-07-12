@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://VictoryScreen/nxt.png" type="Texture" id=2]
+[ext_resource path="res://Sound/izNMQKSUM8P5.128.ogg" type="AudioStream" id=3]
 [ext_resource path="res://TitleScreen/Title.png" type="Texture" id=4]
 [ext_resource path="res://TitleScreen/TitleScreen.png" type="Texture" id=6]
 [ext_resource path="res://TitleScreen/new_dynamicfont.tres" type="DynamicFont" id=7]
@@ -33,7 +34,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.7, 2.6, 3.5, 5.1 ),
+"times": PoolRealArray( 0, 4.1, 5, 5.9, 7.5 ),
 "transitions": PoolRealArray( 3.13834, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -45,7 +46,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.7, 2.6, 3.5, 5.1 ),
+"times": PoolRealArray( 0, 4.1, 5, 5.9, 7.5 ),
 "transitions": PoolRealArray( 4.75683, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -113,4 +114,20 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 328.79, 220.401 )
 scale = Vector2( 1.24555, 1.24555 )
 texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 366.337
+margin_top = 1001.02
+margin_right = 598.337
+margin_bottom = 1020.02
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "By: Sam and Edwin (Ft. LDRS WAVE)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.546
+autoplay = true
 [connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_button_up"]

@@ -10,7 +10,7 @@ signal radio
 func _ready():
 	material = ShaderMaterial.new()
 	#texture_normal = load('res://ControlPanel/PushButton/button_2test.png')
-	texture_pressed = load('res://ControlPanel/PushButton/button_2test_P.png')
+	#texture_pressed = load('res://ControlPanel/PushButton/button_2test_P.png')
 
 	
 func _on_Control_mouse_entered():
