@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ControlPanel/Radio/Radio.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ControlPanel/ScoreDisplay/ScoreDisplay.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ControlPanel/HorizontalSlider/Slider.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ControlPanel/Background/WalkiTalkie.png" type="Texture" id=5]
-[ext_resource path="res://ControlPanel/Background/Background2.png" type="Texture" id=6]
+[ext_resource path="res://ControlPanel/Background/Background3.png" type="Texture" id=6]
+[ext_resource path="res://ControlPanel/PushButton/Button_new_D4_P.png" type="Texture" id=7]
+[ext_resource path="res://ControlPanel/PushButton/Button_new_D4.png" type="Texture" id=8]
 
 [node name="Controls" type="Control"]
 margin_left = -229.477
@@ -34,17 +36,10 @@ margin_top = -59.7975
 margin_right = -56.4988
 margin_bottom = -59.7976
 
-[node name="Radio" parent="WalkieTalkie" instance=ExtResource( 1 )]
-margin_left = -26.1275
-margin_top = -6.13892
-margin_right = -72.1275
-margin_bottom = -114.139
-rect_scale = Vector2( 0.9, 0.9 )
-
 [node name="Interactables" type="Control" parent="."]
 margin_left = 240.0
 margin_top = 353.0
-margin_right = 813.0
+margin_right = 645.0
 margin_bottom = 601.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,11 +55,13 @@ __meta__ = {
 }
 
 [node name="Control" parent="Interactables/PushButtons" instance=ExtResource( 3 )]
-margin_left = 72.0
+margin_left = 88.0
 margin_top = 64.0
-margin_right = 120.0
+margin_right = 136.0
 margin_bottom = 112.0
 rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
 Signal = "Down"
 
 [node name="Sprite" parent="Interactables/PushButtons/Control" index="0"]
@@ -80,7 +77,7 @@ __meta__ = {
 }
 
 [node name="Control" parent="Interactables/Sliders" instance=ExtResource( 4 )]
-margin_left = 224.0
+margin_left = 264.0
 margin_top = 40.0
 margin_right = 408.0
 margin_bottom = 88.0
@@ -90,7 +87,7 @@ Signal = "Up"
 position = Vector2( -32, 24 )
 
 [node name="Control2" parent="Interactables/Sliders" instance=ExtResource( 4 )]
-margin_left = 224.0
+margin_left = 264.0
 margin_top = 104.0
 margin_right = 408.0
 margin_bottom = 152.0
@@ -99,7 +96,7 @@ margin_bottom = 152.0
 position = Vector2( -32, 24 )
 
 [node name="Control3" parent="Interactables/Sliders" instance=ExtResource( 4 )]
-margin_left = 224.0
+margin_left = 264.0
 margin_top = 168.0
 margin_right = 408.0
 margin_bottom = 216.0
@@ -113,6 +110,12 @@ margin_left = -18.523
 margin_top = -21.09
 margin_right = 21.477
 margin_bottom = 18.91
+
+[node name="Radio" parent="." instance=ExtResource( 1 )]
+margin_left = 709.477
+margin_top = 483.91
+margin_right = 802.477
+margin_bottom = 576.91
 
 [editable path="Interactables/PushButtons/Control"]
 
