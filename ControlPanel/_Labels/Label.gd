@@ -13,7 +13,7 @@ func _ready():
 func assign_vals():
 	var Signal = get_parent().Signal
 	if Signal in ['Up','Left','Down','Right']:
-		texture = load("res://ControlPanel/_Labels/arrow.png")
+		texture = load("res://ControlPanel/_Labels/arrow_new.png")
 	if Signal == "Died":
 		texture = load("res://ControlPanel/_Labels/died.png")
 	if Signal == "Music":

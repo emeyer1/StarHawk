@@ -1,13 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://ControlPanel/PushButton/button_2test.png" type="Texture" id=2]
 [ext_resource path="res://ControlPanel/PushButton/button_2test_P.png" type="Texture" id=3]
 [ext_resource path="res://ControlPanel/_Labels/AlienText/AT1.png" type="Texture" id=4]
 [ext_resource path="res://ControlPanel/ScoreDisplay/new_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://TitleScreen/TitleScreen.png" type="Texture" id=6]
+[ext_resource path="res://TitleScreen/new_dynamicfont.tres" type="DynamicFont" id=7]
 
 [sub_resource type="Animation" id=1]
-resource_name = "AlientText"
+resource_name = "Pan"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 305.677, 450.179 ), Vector2( 305.677, 569.259 ) ]
+}
+
+[sub_resource type="Animation" id=2]
 length = 7.0
 loop = true
 tracks/0/type = "value"
@@ -35,18 +52,46 @@ tracks/1/keys = {
 "values": [ Color( 0.545098, 0.588235, 1, 0 ), Color( 0.545098, 0.588235, 1, 1 ), Color( 0.545098, 0.588235, 1, 0 ) ]
 }
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( -0.027, 1 )
 colors = PoolColorArray( 0.235294, 0.192157, 0.243137, 1, 0.137255, 0.027451, 0.027451, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
 [node name="Control" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VictoryBackground" type="Sprite" parent="."]
+position = Vector2( 305.677, 569.259 )
+scale = Vector2( 1.16314, 1.16314 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VictoryBackground"]
+autoplay = "Pan"
+anims/Pan = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 67.0325
+margin_top = 134.242
+margin_right = 560.032
+margin_bottom = 336.242
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.278431, 0.392157, 0.784314, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 6
+custom_constants/line_spacing = -2
+custom_constants/shadow_offset_y = 8
+custom_constants/shadow_as_outline = 0
+text = "Starship 
+   Hijackers"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,7 +109,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton"]
 autoplay = "AlientText"
-anims/AlientText = SubResource( 1 )
+anims/AlientText = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="TextureButton/AnimationPlayer"]
 modulate = Color( 1, 1, 1, 0.124224 )
@@ -90,5 +135,5 @@ __meta__ = {
 position = Vector2( 300.473, 515.004 )
 scale = Vector2( 0.293874, 1038.76 )
 z_index = -15
-texture = SubResource( 3 )
+texture = SubResource( 4 )
 [connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_button_up"]
