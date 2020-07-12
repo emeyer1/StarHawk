@@ -1,10 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
-[ext_resource path="res://ControlPanel/PushButton/button_2test.png" type="Texture" id=2]
-[ext_resource path="res://ControlPanel/PushButton/button_2test_P.png" type="Texture" id=3]
-[ext_resource path="res://ControlPanel/_Labels/AlienText/AT1.png" type="Texture" id=4]
-[ext_resource path="res://ControlPanel/ScoreDisplay/new_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://VictoryScreen/nxt.png" type="Texture" id=2]
+[ext_resource path="res://TitleScreen/Title.png" type="Texture" id=4]
 [ext_resource path="res://TitleScreen/TitleScreen.png" type="Texture" id=6]
 [ext_resource path="res://TitleScreen/new_dynamicfont.tres" type="DynamicFont" id=7]
 
@@ -25,39 +23,33 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-length = 7.0
+resource_name = "TItle"
+length = 10.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/Sprite:modulate")
+tracks/0/path = NodePath("AnimationPlayer/Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2.3, 4.6, 7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.7, 2.6, 3.5, 5.1 ),
+"transitions": PoolRealArray( 3.13834, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.952381 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/Label:custom_colors/font_color")
+tracks/1/path = NodePath("AnimationPlayer/Title:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.9, 3.4, 5.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.7, 2.6, 3.5, 5.1 ),
+"transitions": PoolRealArray( 4.75683, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.545098, 0.588235, 1, 0 ), Color( 0.545098, 0.588235, 1, 1 ), Color( 0.545098, 0.588235, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-
-[sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( -0.027, 1 )
-colors = PoolColorArray( 0.235294, 0.192157, 0.243137, 1, 0.137255, 0.027451, 0.027451, 1 )
-
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
 
 [node name="Control" type="Control"]
 pause_mode = 2
@@ -65,11 +57,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_horizontal_guides_": [ 319.848 ],
 "_edit_use_anchors_": false
 }
 
 [node name="VictoryBackground" type="Sprite" parent="."]
-position = Vector2( 305.677, 569.259 )
+position = Vector2( 305.677, 450.179 )
 scale = Vector2( 1.16314, 1.16314 )
 texture = ExtResource( 6 )
 
@@ -77,7 +70,26 @@ texture = ExtResource( 6 )
 autoplay = "Pan"
 anims/Pan = SubResource( 1 )
 
-[node name="Label" type="Label" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 237.11
+margin_top = 360.961
+margin_right = -215.89
+margin_bottom = -501.039
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "TItle"
+anims/TItle = SubResource( 2 )
+
+[node name="Label" type="Label" parent="AnimationPlayer"]
 margin_left = 67.0325
 margin_top = 134.242
 margin_right = 560.032
@@ -96,44 +108,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton"]
-autoplay = "AlientText"
-anims/AlientText = SubResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="TextureButton/AnimationPlayer"]
-modulate = Color( 1, 1, 1, 0.124224 )
-position = Vector2( 309.519, 508.542 )
-scale = Vector2( 22.0815, 14.2313 )
+[node name="Title" type="Sprite" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 328.79, 220.401 )
+scale = Vector2( 1.24555, 1.24555 )
 texture = ExtResource( 4 )
-
-[node name="Label" type="Label" parent="TextureButton/AnimationPlayer"]
-margin_left = 111.631
-margin_top = 347.153
-margin_right = 490.631
-margin_bottom = 653.153
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.545098, 0.588235, 1, 0.0666667 )
-text = "Start"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 300.473, 515.004 )
-scale = Vector2( 0.293874, 1038.76 )
-z_index = -15
-texture = SubResource( 4 )
 [connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_button_up"]
