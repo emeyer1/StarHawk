@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Instructions.gd" type="Script" id=1]
 [ext_resource path="res://InstructionScreen/Companion.png" type="Texture" id=2]
 [ext_resource path="res://InstructionScreen/new_dynamicfont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://ControlPanel/PushButton/Button_new.png" type="Texture" id=4]
+[ext_resource path="res://Sound/Alien Gibberish/GibF.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TextAppear"
-length = 13.0
+length = 11.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Label:visible_characters")
 tracks/0/interp = 1
@@ -19,18 +20,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 0.870551 ),
 "update": 0,
 "values": [ 0, 300 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/TextureButton:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 13 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
 }
 
 [node name="Control" type="Control"]
@@ -81,6 +70,7 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="AnimationPlayer"]
+visible = false
 margin_left = 195.163
 margin_top = 804.0
 margin_right = 405.163
@@ -121,4 +111,11 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 2.0
+autoplay = true
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="button_up" from="AnimationPlayer/TextureButton" to="." method="_on_TextureButton_button_up"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
