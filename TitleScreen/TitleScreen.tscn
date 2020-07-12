@@ -116,10 +116,10 @@ scale = Vector2( 1.24555, 1.24555 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 197.651
-margin_top = 1005.1
-margin_right = 429.651
-margin_bottom = 1024.1
+margin_left = 366.337
+margin_top = 1001.02
+margin_right = 598.337
+margin_bottom = 1020.02
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "By: Sam and Edwin (Ft. LDRS WAVE)"
 __meta__ = {

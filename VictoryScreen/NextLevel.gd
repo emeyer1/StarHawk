@@ -11,7 +11,7 @@ export var next_scene = "DEFAULT VALUE"
 export var score = 2000
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Label.text = 'Total Haul: \n' +str(Game.Score)
+	$Label.text = 'Total Haul: \n' +'$'+str(Game.Score)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
