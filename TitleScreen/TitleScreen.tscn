@@ -62,6 +62,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.546
+autoplay = true
+
 [node name="VictoryBackground" type="Sprite" parent="."]
 position = Vector2( 305.677, 450.179 )
 scale = Vector2( 1.16314, 1.16314 )
@@ -125,9 +130,4 @@ text = "By: Sam and Edwin (Ft. LDRS WAVE)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-volume_db = -15.546
-autoplay = true
 [connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_button_up"]

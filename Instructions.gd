@@ -27,7 +27,7 @@ func stopSound():
 #	pass
 
 func _on_TextureButton_button_up():
-	get_tree().change_scene("res://Level1_1.tscn")
+	get_tree().change_scene("res://ChooseShip/ChooseShip.tscn")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	animationdone = true
