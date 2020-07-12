@@ -62,7 +62,7 @@ func _physics_process(delta):
 	#velocity = move_and_slide(velocity, Vector3.UP)
 
 	var collision = move_and_collide(velocity)
-	if collision:
+	if collision && collision.collider.name != "Ground":
 		$CollisionShape.disabled = true
 		Game.ChangeScore(1000)
 		$AnimationPlayer.play("Hit Animation")
