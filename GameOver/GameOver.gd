@@ -35,4 +35,4 @@ func restart():
 func _on_LevelSelect_toggled(button_pressed):
 	if !once:
 		once = true
-		get_tree().change_scene(level_select_scene)
+		get_tree().change_scene("res://ChooseShip/ChooseShip.tscn")
