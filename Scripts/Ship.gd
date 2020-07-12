@@ -69,7 +69,6 @@ func _physics_process(delta):
 		yield($AnimationPlayer,"animation_finished")
 		$CollisionShape.disabled = false
 		
-		
 
 	
 func input():

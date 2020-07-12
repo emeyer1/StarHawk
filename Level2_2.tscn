@@ -43,7 +43,7 @@ background_sky = SubResource( 5 )
 
 [node name="StarFax" type="Spatial"]
 script = ExtResource( 6 )
-Score = 2000
+Score = 4000
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.951264, 0.30835, -0.00424956, 0.0698257, -0.20195, 0.976904, 0.30037, -0.92959, -0.213638, 5.49172, 144.368, 47.0461 )
