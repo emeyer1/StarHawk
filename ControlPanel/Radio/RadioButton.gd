@@ -21,9 +21,14 @@ func _on_Control_mouse_exited():
 
 func _on_Radio_button_down():
 	Game.ChangeScore(200)
+	$AudioStreamPlayer.play()
 	for i in get_node("/root/StarFax/Camera/Controls/Interactables").get_children():
 		for ii in i.get_children():
 			ii.get_node("Sprite").assign_vals()
 			for j in ii.get_children():
 				for k in j.get_children():
+					print(k)
+					k.seek(0,true)
 					k.play("Fade")
+	yield($AudioStreamPlayer,"finished")
+	$AudioStreamPlayer.stop()
