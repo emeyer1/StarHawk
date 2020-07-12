@@ -104,13 +104,13 @@ func input():
 	for s in UI_sliders:
 		match s.Signal:
 			"Right":
-				control_inputs["x"] -= (100 - s.value)/200
+				control_inputs["x"] -= (100 - s.value)/100
 			"Left":
-				control_inputs["x"] += (100 - s.value)/200
+				control_inputs["x"] += (100 - s.value)/100
 			"Up":
-				control_inputs["y"] += (100 - s.value)/200
+				control_inputs["y"] += (100 - s.value)/100
 			"Down":
-				control_inputs["y"] -= (100 - s.value)/200
+				control_inputs["y"] -= (100 - s.value)/100
 	
 	for sw in UI_switches:
 		if sw.Button_signal:
