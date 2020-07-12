@@ -5,7 +5,7 @@ export var base_speed = 40
 var turn_speed = 20
 var turn_rotation_speed = 3
 var turn_rotation_max_angle = 20
-var x_bounds = 8
+var x_bounds = 19
 var top_bound = 20
 var bottom_bound = 0.5
 
