@@ -11,8 +11,7 @@ var ship_class = preload("Ship.gd")
 var last_obstructing_objects = []
 
 func _ready():
-	var overlay = load("res://DebugOverlay/DebugOverlay.tscn").instance()
-	add_child(overlay)
+	pass
 
 func _physics_process(delta):
 	transform.origin.z = get_node("../Player").transform.origin.z + follow_distance
