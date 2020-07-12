@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_TextureButton_button_up():
-	get_tree().change_scene("res://Level2.tscn")
+	get_tree().change_scene("res://Level1_1.tscn")

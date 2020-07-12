@@ -24,22 +24,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background1" type="Sprite" parent="."]
-position = Vector2( 528.215, 475.598 )
-z_as_relative = false
-texture = ExtResource( 8 )
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="WalkieTalkie" type="Sprite" parent="Background1"]
-position = Vector2( 221.693, 14.473 )
+[node name="Radio" parent="Control" instance=ExtResource( 11 )]
+margin_left = 714.0
+margin_top = 489.0
+margin_right = 767.0
+margin_bottom = 542.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture_pressed = ExtResource( 13 )
+
+[node name="WalkieTalkie" type="Sprite" parent="."]
+position = Vector2( 749.908, 490.071 )
 rotation = 0.246554
+z_index = -1
 texture = ExtResource( 5 )
 
-[node name="ScoreDisplay" parent="Background1/WalkieTalkie" instance=ExtResource( 12 )]
+[node name="ScoreDisplay" parent="WalkieTalkie" instance=ExtResource( 12 )]
 margin_left = -56.0
 margin_top = -60.0
 margin_right = -78.0
 margin_bottom = -217.0
 mouse_filter = 2
+
+[node name="Background1" type="Sprite" parent="."]
+position = Vector2( 528.215, 475.598 )
+z_index = -2
+z_as_relative = false
+texture = ExtResource( 8 )
 
 [node name="Interactables" type="Control" parent="."]
 margin_left = 240.0
@@ -125,21 +142,6 @@ Signal = "Left"
 [node name="Sprite" parent="Interactables/FlipSwitches/FlipSwitch2" index="2"]
 position = Vector2( 52.073, 150.987 )
 z_index = -1
-
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Radio" parent="Control" instance=ExtResource( 11 )]
-margin_left = 714.0
-margin_top = 489.0
-margin_right = 767.0
-margin_bottom = 542.0
-rect_scale = Vector2( 0.9, 0.9 )
-texture_pressed = ExtResource( 13 )
 
 [editable path="Interactables/PushButtons/Control7"]
 
