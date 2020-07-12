@@ -2,7 +2,7 @@ extends Spatial
 
 
 export(int) var Score
-onready var ScoreDisplay = $Camera/Controls/ScoreDisplay
+onready var ScoreDisplay = $Camera/Controls/WalkieTalkie/ScoreDisplay
 onready var Radio = $Camera/Controls/Radio
 
 

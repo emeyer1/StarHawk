@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://ControlPanel/ScoreDisplay/ScoreDisplay.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ControlPanel/Radio/Radio.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ControlPanel/PushButton/Button_new_P.png" type="Texture" id=1]
+[ext_resource path="res://ControlPanel/VerticalFlipSwitch/Switch_new.png" type="Texture" id=2]
+[ext_resource path="res://ControlPanel/PushButton/Button_new_D2.png" type="Texture" id=3]
+[ext_resource path="res://ControlPanel/PushButton/Button_new.png" type="Texture" id=4]
+[ext_resource path="res://ControlPanel/Background/WalkiTalkie.png" type="Texture" id=5]
+[ext_resource path="res://ControlPanel/PushButton/Button_new_D2_P.png" type="Texture" id=6]
+[ext_resource path="res://ControlPanel/VerticalFlipSwitch/Switch_new_P.png" type="Texture" id=7]
+[ext_resource path="res://ControlPanel/Background/Background1.png" type="Texture" id=8]
+[ext_resource path="res://ControlPanel/VerticalFlipSwitch/Vert_Flip_Button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ControlPanel/Radio/Radio.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ControlPanel/ScoreDisplay/ScoreDisplay.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ControlPanel/Radio/Button_P.png" type="Texture" id=13]
 
 [node name="Controls" type="Control"]
 margin_left = -229.477
@@ -10,23 +20,31 @@ margin_top = 420.09
 margin_right = -229.477
 margin_bottom = 420.09
 __meta__ = {
+"_edit_horizontal_guides_": [ 1021.38 ],
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 240.0
-margin_top = 353.0
-margin_right = 816.0
-margin_bottom = 601.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Background1" type="Sprite" parent="."]
+position = Vector2( 528.215, 475.598 )
+z_as_relative = false
+texture = ExtResource( 8 )
+
+[node name="WalkieTalkie" type="Sprite" parent="Background1"]
+position = Vector2( 221.693, 14.473 )
+rotation = 0.246554
+texture = ExtResource( 5 )
+
+[node name="ScoreDisplay" parent="Background1/WalkieTalkie" instance=ExtResource( 12 )]
+margin_left = -56.0
+margin_top = -60.0
+margin_right = -78.0
+margin_bottom = -217.0
+mouse_filter = 2
 
 [node name="Interactables" type="Control" parent="."]
 margin_left = 240.0
 margin_top = 353.0
-margin_right = 816.0
+margin_right = 250.0
 margin_bottom = 601.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -41,21 +59,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control2" parent="Interactables/PushButtons" instance=ExtResource( 3 )]
-margin_left = 256.0
-margin_top = 16.0
-margin_right = 304.0
-margin_bottom = 64.0
-rect_scale = Vector2( 2, 2 )
+[node name="Control7" parent="Interactables/PushButtons" instance=ExtResource( 10 )]
+margin_left = 156.0
+margin_top = 56.0
+margin_right = 366.0
+margin_bottom = 166.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 6 )
+Signal = "Down"
+
+[node name="Sprite" parent="Interactables/PushButtons/Control7" index="0"]
+position = Vector2( 102.228, 71.3866 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Control2" parent="Interactables/PushButtons" instance=ExtResource( 10 )]
+margin_left = 208.0
+margin_top = 8.0
+margin_right = 424.0
+margin_bottom = 120.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 1 )
 Signal = "Up"
 
-[node name="Control8" parent="Interactables/PushButtons" instance=ExtResource( 3 )]
-margin_left = 268.919
-margin_top = 112.0
-margin_right = 316.919
-margin_bottom = 160.0
-rect_scale = Vector2( 1.5, 1.5 )
-Signal = "Down"
+[node name="Sprite" parent="Interactables/PushButtons/Control2" index="0"]
+position = Vector2( 104, 48 )
 
 [node name="Sliders" type="Control" parent="Interactables"]
 margin_left = -26.523
@@ -72,23 +100,51 @@ margin_top = -21.09
 margin_right = 21.477
 margin_bottom = 18.91
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 678.0
-margin_top = 390.0
-margin_right = 796.0
-margin_bottom = 429.0
-color = Color( 0.27451, 0.541176, 0.25098, 1 )
+[node name="FlipSwitch" parent="Interactables/FlipSwitches" instance=ExtResource( 9 )]
+margin_left = 73.6303
+margin_top = 22.8704
+margin_right = 133.63
+margin_bottom = 182.87
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+Signal = "Right"
 
-[node name="ScoreDisplay" parent="." instance=ExtResource( 1 )]
-margin_left = 677.842
-margin_top = 390.158
-margin_right = 677.842
-margin_bottom = 390.158
+[node name="Sprite" parent="Interactables/FlipSwitches/FlipSwitch" index="2"]
+position = Vector2( 53.5237, 149.683 )
+z_index = -1
 
-[node name="Radio" parent="." instance=ExtResource( 2 )]
-margin_left = 718.386
-margin_top = 476.308
-margin_right = 766.386
-margin_bottom = 524.308
+[node name="FlipSwitch2" parent="Interactables/FlipSwitches" instance=ExtResource( 9 )]
+margin_left = 15.8854
+margin_top = 59.67
+margin_right = 75.8854
+margin_bottom = 219.67
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+Signal = "Left"
+
+[node name="Sprite" parent="Interactables/FlipSwitches/FlipSwitch2" index="2"]
+position = Vector2( 52.073, 150.987 )
+z_index = -1
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Radio" parent="Control" instance=ExtResource( 11 )]
+margin_left = 714.0
+margin_top = 489.0
+margin_right = 767.0
+margin_bottom = 542.0
+rect_scale = Vector2( 0.9, 0.9 )
+texture_pressed = ExtResource( 13 )
+
+[editable path="Interactables/PushButtons/Control7"]
 
 [editable path="Interactables/PushButtons/Control2"]
+
+[editable path="Interactables/FlipSwitches/FlipSwitch"]
+
+[editable path="Interactables/FlipSwitches/FlipSwitch2"]
