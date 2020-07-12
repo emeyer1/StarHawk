@@ -64,7 +64,6 @@ If you really need a refresher, hit the radio button.
 
 OH! 'nd if you do enough damage to make the ship worthless, don't even bother showing up."
 autowrap = true
-percent_visible = 1.00334
 __meta__ = {
 "_edit_use_anchors_": false
 }
