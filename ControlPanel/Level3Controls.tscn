@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ControlPanel/Radio/Radio.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ControlPanel/ScoreDisplay/ScoreDisplay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ControlPanel/HorizontalSlider/Slider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ControlPanel/Background/WalkiTalkie.png" type="Texture" id=5]
+[ext_resource path="res://ControlPanel/Background/Background2.png" type="Texture" id=6]
+
+[node name="Controls" type="Control"]
+margin_left = -229.477
+margin_top = 420.09
+margin_right = -229.477
+margin_bottom = 420.09
+__meta__ = {
+"_edit_horizontal_guides_": [ 1021.38 ],
+"_edit_use_anchors_": false
+}
+
+[node name="Background1" type="Sprite" parent="."]
+position = Vector2( 528.215, 475.598 )
+z_index = -2
+texture = ExtResource( 6 )
+
+[node name="WalkieTalkie" type="Sprite" parent="."]
+position = Vector2( 749.908, 490.071 )
+rotation = 0.246554
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="ScoreDisplay" parent="WalkieTalkie" instance=ExtResource( 2 )]
+margin_left = -56.4988
+margin_top = -59.7975
+margin_right = -56.4988
+margin_bottom = -59.7976
+
+[node name="Radio" parent="WalkieTalkie" instance=ExtResource( 1 )]
+margin_left = -26.1275
+margin_top = -6.13892
+margin_right = -72.1275
+margin_bottom = -114.139
+rect_scale = Vector2( 0.9, 0.9 )
+
+[node name="Interactables" type="Control" parent="."]
+margin_left = 240.0
+margin_top = 353.0
+margin_right = 813.0
+margin_bottom = 601.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PushButtons" type="Control" parent="Interactables"]
+margin_left = -26.523
+margin_top = 2.91003
+margin_right = -26.523
+margin_bottom = 2.91003
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="Interactables/PushButtons" instance=ExtResource( 3 )]
+margin_left = 72.0
+margin_top = 64.0
+margin_right = 120.0
+margin_bottom = 112.0
+rect_scale = Vector2( 2, 2 )
+Signal = "Down"
+
+[node name="Sprite" parent="Interactables/PushButtons/Control" index="0"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sliders" type="Control" parent="Interactables"]
+margin_left = -26.523
+margin_top = -5.08997
+margin_right = -26.523
+margin_bottom = -5.08997
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="Interactables/Sliders" instance=ExtResource( 4 )]
+margin_left = 224.0
+margin_top = 40.0
+margin_right = 408.0
+margin_bottom = 88.0
+Signal = "Up"
+
+[node name="Sprite" parent="Interactables/Sliders/Control" index="1"]
+position = Vector2( -32, 24 )
+
+[node name="Control2" parent="Interactables/Sliders" instance=ExtResource( 4 )]
+margin_left = 224.0
+margin_top = 104.0
+margin_right = 408.0
+margin_bottom = 152.0
+
+[node name="Sprite" parent="Interactables/Sliders/Control2" index="1"]
+position = Vector2( -32, 24 )
+
+[node name="Control3" parent="Interactables/Sliders" instance=ExtResource( 4 )]
+margin_left = 224.0
+margin_top = 168.0
+margin_right = 408.0
+margin_bottom = 216.0
+Signal = "Right"
+
+[node name="Sprite" parent="Interactables/Sliders/Control3" index="1"]
+position = Vector2( -32, 24 )
+
+[node name="FlipSwitches" type="Control" parent="Interactables"]
+margin_left = -18.523
+margin_top = -21.09
+margin_right = 21.477
+margin_bottom = 18.91
+
+[editable path="Interactables/PushButtons/Control"]
+
+[editable path="Interactables/Sliders/Control"]
+
+[editable path="Interactables/Sliders/Control2"]
+
+[editable path="Interactables/Sliders/Control3"]
