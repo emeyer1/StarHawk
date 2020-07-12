@@ -131,10 +131,10 @@ position = Vector2( 53.5237, 149.683 )
 z_index = -1
 
 [node name="FlipSwitch2" parent="Interactables/FlipSwitches" instance=ExtResource( 9 )]
-margin_left = 15.8854
-margin_top = 59.67
-margin_right = 75.8854
-margin_bottom = 219.67
+margin_left = 16.0
+margin_top = 60.0
+margin_right = 76.0
+margin_bottom = 220.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 7 )
 Signal = "Left"

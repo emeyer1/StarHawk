@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ControlPanel/Background/WalkiTalkie.png" type="Texture" id=1]
 [ext_resource path="res://ControlPanel/PushButton/Button_new_D3_P.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ControlPanel/PushButton/PushButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ControlPanel/Radio/Radio.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ControlPanel/ScoreDisplay/ScoreDisplay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ControlPanel/Radio/Button_P.png" type="Texture" id=8]
 
 [node name="Controls" type="Control"]
 margin_left = -229.477
@@ -34,13 +35,6 @@ margin_left = -56.4988
 margin_top = -59.7975
 margin_right = -56.4988
 margin_bottom = -59.7976
-
-[node name="Radio" parent="WalkieTalkie" instance=ExtResource( 6 )]
-margin_left = -26.1275
-margin_top = -6.13892
-margin_right = -72.1275
-margin_bottom = -114.139
-rect_scale = Vector2( 0.9, 0.9 )
 
 [node name="Interactables" type="Control" parent="."]
 margin_left = 240.0
@@ -219,6 +213,13 @@ margin_left = -18.523
 margin_top = -21.09
 margin_right = 21.477
 margin_bottom = 18.91
+
+[node name="Radio" parent="." instance=ExtResource( 6 )]
+margin_left = 709.477
+margin_top = 483.91
+margin_right = 802.477
+margin_bottom = 576.91
+texture_pressed = ExtResource( 8 )
 
 [editable path="Interactables/PushButtons/Control7"]
 
