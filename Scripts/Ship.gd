@@ -7,7 +7,7 @@ var turn_rotation_speed = 3
 var turn_rotation_max_angle = 20
 var x_bounds = 19
 var top_bound = 20
-var bottom_bound = 0.5
+var bottom_bound = 2
 
 onready var Game = get_node("/root/StarFax")
 onready var timer = get_node("/root/StarFax/Player/Timer")
@@ -68,6 +68,7 @@ func _physics_process(delta):
 		$AnimationPlayer.play("Hit Animation")
 		yield($AnimationPlayer,"animation_finished")
 		$CollisionShape.disabled = false
+	
 		
 
 	
