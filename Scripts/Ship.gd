@@ -85,8 +85,8 @@ func input():
 #		control_inputs["y"] += 1
 #	if Input.is_action_pressed("move_down"):
 #		control_inputs["y"] -= 1
-	if Input.is_action_pressed("boost"):
-		control_inputs["speed_boost"] = 2
+#	if Input.is_action_pressed("boost"):
+#		control_inputs["speed_boost"] = 2
 
 	for b in UI_buttons:
 		if b.Button_signal:
