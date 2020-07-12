@@ -18,12 +18,16 @@ func _ready():
 
 
 func _on_TextureButton_button_up():
+	$AudioStreamPlayer.stop()
 	get_tree().change_scene("res://Level1_1.tscn")
+	
 
 
 func _on_TextureButton2_button_up():
+	$AudioStreamPlayer.stop()
 	get_tree().change_scene("res://Level1_2.tscn")
 
 
 func _on_TextureButton3_button_up():
+	$AudioStreamPlayer.stop()
 	get_tree().change_scene("res://Level1_3.tscn")

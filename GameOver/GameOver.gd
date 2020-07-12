@@ -22,10 +22,11 @@ func _ready():
 
 
 func _on_TextureButton_toggled(button_pressed):
+	Game.get_node('AudioStreamPlayer').stop()
 	if !once:
 		once = true
 		restart()
-	
+		
 func restart():
 	yield(get_tree().create_timer(0.25), "timeout")
 	get_tree().paused = false
@@ -33,6 +34,7 @@ func restart():
 
 
 func _on_LevelSelect_toggled(button_pressed):
+	Game.get_node('AudioStreamPlayer').stop()
 	if !once:
 		once = true
 		get_tree().change_scene("res://ChooseShip/ChooseShip.tscn")
