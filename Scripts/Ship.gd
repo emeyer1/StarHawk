@@ -77,14 +77,14 @@ func input():
 	control_inputs["y"] = 0
 	control_inputs["speed_boost"] = 1
 	
-	if Input.is_action_pressed("move_right"):
-		control_inputs["x"] -= 1
-	if Input.is_action_pressed("move_left"):
-		control_inputs["x"] += 1
-	if Input.is_action_pressed("move_up"):
-		control_inputs["y"] += 1
-	if Input.is_action_pressed("move_down"):
-		control_inputs["y"] -= 1
+#	if Input.is_action_pressed("move_right"):
+#		control_inputs["x"] -= 1
+#	if Input.is_action_pressed("move_left"):
+#		control_inputs["x"] += 1
+#	if Input.is_action_pressed("move_up"):
+#		control_inputs["y"] += 1
+#	if Input.is_action_pressed("move_down"):
+#		control_inputs["y"] -= 1
 	if Input.is_action_pressed("boost"):
 		control_inputs["speed_boost"] = 2
 
