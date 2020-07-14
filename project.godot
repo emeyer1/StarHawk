@@ -20,14 +20,16 @@ _global_script_class_icons={
 
 [application]
 
-config/name="StarHawks"
+config/name="StarshipHijackers"
 run/main_scene="res://TitleScreen/TitleScreen.tscn"
-config/icon="res://icon.png"
+config/icon="res://InstructionScreen/Companion.png"
+config/windows_native_icon="res://Companion.ico"
 
 [display]
 
 window/size/width=600
 window/size/height=1024
+window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
